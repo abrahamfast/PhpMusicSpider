@@ -7,6 +7,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
+use App\Core\MainSpider;
 
 
 class Spider extends Command
@@ -21,8 +22,10 @@ class Spider extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $url = $input->getArgument('url');
+
+        $provider = new SpiderProvider($url);
+        $provider->process();
 
         return 0;
     }
