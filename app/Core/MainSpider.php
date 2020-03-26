@@ -8,6 +8,7 @@ class MainSpider
 {
   protected string $url;
   protected $dom;
+  protected $model;
 
   function __construct($url)
   {
@@ -19,5 +20,4 @@ class MainSpider
   {
     return $this->dom;
   }
-
 }
