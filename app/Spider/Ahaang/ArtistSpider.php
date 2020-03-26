@@ -17,13 +17,27 @@ class ArtistSpider extends Spider
     $this->model = new Model;
   }
 
+  public function trackProvider()
+  {
+    $track = new TrackSpider();
+  }
+
+  public function albumProvider()
+  {
+    $album = new AlbumSpider();
+  }
+
   public function runSpider()
   {
     $this->initModel();
+
     $this->spiderArtist();
     $this->spiderBio();
     $this->spiderArtistNameLating();
     $this->spiderCover();
+
+    $this->trackProvider();
+    $this->albumProvider();
   }
 
   public function spiderArtist()
@@ -52,7 +66,7 @@ class ArtistSpider extends Spider
     if($d->count()){
       $this->getModel()->setGenre($d->text());
     }
-    
+
     return null;
   }
 
@@ -61,7 +75,6 @@ class ArtistSpider extends Spider
     $d = $this->getDom()->filter('.profile_pic_main img');
     if($d->count()){
       $cover = $d->attr('src');
-      var_dump($cover);
       $this->getModel()->setCover($cover);
     }
 
@@ -72,8 +85,7 @@ class ArtistSpider extends Spider
   {
     $d = $this->getDom()->filter('.genre');
     if($d->count()){
-      $cover = $d->attr('src');
-      $this->getModel()->setCover($cover);
+
     }
 
     return null;
