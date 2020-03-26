@@ -22,7 +22,7 @@ class Spider extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        var_dump($input->getArgument('url'));
+        $url = $input->getArgument('url');
 
         return 0;
     }
