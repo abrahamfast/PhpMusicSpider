@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Core\Queue;
+
 class SpiderProvider
 {
   protected string $url;
@@ -9,12 +11,14 @@ class SpiderProvider
   // types are artist track and album Provider
   protected string $type;
   protected string $providerName;
+  protected $provider;
 
   public function __construct($url, $type, $providerName)
   {
     $this->url = $url;
     $this->setType($type);
     $this->providerName = $providerName;
+    $this->queue = new Queue;
   }
 
   public function getProvider()
@@ -30,15 +34,19 @@ class SpiderProvider
     $provider = new $this->provider($this->url);
     $provider->runSpider();
 
-    return $provider->getModel();
+    return $provider->getMeta();
   }
 
   public function process()
   {
     $this->getProvider();
-    $model = $this->runProvider();
+    $meta = $this->runProvider();
+    $this->getQueue()->add($meta->toArray());
+  }
 
-    var_dump($model);
+  public function getQueue()
+  {
+    return $this->queue;
   }
 
   public function setType($value)

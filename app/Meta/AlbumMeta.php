@@ -1,32 +1,18 @@
 <?php
 
-namespace App\Model;
+namespace App\Meta;
 
-use App\Core\MainModel as Model;
-
-class TrackModel extends Model
+class AlbumMeta
 {
-  protected string $lyric = '';
   protected string $name = '';
-  protected string $trackUrl = '';
   protected string $cover = '';
   protected string $genre = '';
   protected string $published = '';
   protected string $artist = '';
 
-  public function setLyric($value)
-  {
-    $this->lyric = $value;
-  }
-
   public function setName(string $value): void
   {
     $this->name = $value;
-  }
-
-  public function setTrackUrl($value): void
-  {
-    $this->trackUrl = $value;
   }
 
   public function setCover($value): void

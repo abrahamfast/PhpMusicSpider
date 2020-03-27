@@ -3,18 +3,18 @@
 namespace App\Spider\Ahaang;
 
 use App\Core\MainSpider as Spider;
-use App\Model\ArtistModel as Model;
+use App\Meta\ArtistMeta as Meta;
 
 class ArtistSpider extends Spider
 {
-  public function getModel()
+  public function getMeta()
   {
-    return $this->model;
+    return $this->meta;
   }
 
-  public function initModel()
+  public function initMeta()
   {
-    $this->model = new Model;
+    $this->meta = new Meta;
   }
 
   public function trackProvider()
@@ -29,7 +29,7 @@ class ArtistSpider extends Spider
 
   public function runSpider()
   {
-    $this->initModel();
+    $this->initMeta();
 
     $this->spiderArtist();
     $this->spiderBio();
@@ -44,7 +44,7 @@ class ArtistSpider extends Spider
   {
     $d = $this->getDom()->filter('.profile_dtls strong');
     if($d->count()){
-      $this->getModel()->setArtistName($d->text());
+      $this->getMeta()->setArtistName($d->text());
     }
 
     return null;
@@ -54,7 +54,7 @@ class ArtistSpider extends Spider
   {
     $d = $this->getDom()->filter('.profile_bio');
     if($d->count()){
-      $this->getModel()->setBio($d->text());
+      $this->getMeta()->setBio($d->text());
     }
 
     return null;
@@ -64,7 +64,7 @@ class ArtistSpider extends Spider
   {
     $d = $this->getDom()->filter('.profile_dtls h2');
     if($d->count()){
-      $this->getModel()->setGenre($d->text());
+      $this->getMeta()->setGenre($d->text());
     }
 
     return null;
@@ -75,7 +75,7 @@ class ArtistSpider extends Spider
     $d = $this->getDom()->filter('.profile_pic_main img');
     if($d->count()){
       $cover = $d->attr('src');
-      $this->getModel()->setCover($cover);
+      $this->getMeta()->setCover($cover);
     }
 
     return null;

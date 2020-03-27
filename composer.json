@@ -2,7 +2,9 @@
     "require": {
         "symfony/console": "^5.0",
         "symfony/dom-crawler": "^5.0",
-        "fabpot/goutte": "^4.0"
+        "fabpot/goutte": "^4.0",
+        "illuminate/database": "^7.3",
+        "vlucas/phpdotenv": "^4.1"
     },
     "autoload": {
         "psr-4": {

@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Model;
+namespace App\Meta;
 
-use App\Core\MainModel as Model;
-
-class ArtistModel extends Model
+class ArtistMeta
 {
   protected string $artisName = '';
   protected string $artisNameLatin = '';

@@ -12,9 +12,26 @@ php cli
 ## run a spider
 
 ```sh
-php cli spider:get providerName providerType providerLink
+php cli spider:run providerName providerType providerLink
 ```
 
+## make new spider
+
+```sh
+php cli spider:make Provider
+```
+
+## queue work
+
+```sh
+php cli queue:work
+```
+
+## queue list
+
+```sh
+php cli queue:list
+```
 
 
 ## Core Skeleton Tasks

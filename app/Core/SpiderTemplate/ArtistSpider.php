@@ -3,23 +3,23 @@
 namespace App\Spider\{className};
 
 use App\Core\MainSpider as Spider;
-use App\Model\ArtistModel as Model;
+use App\Meta\ArtistMeta as Meta;
 
 class ArtistSpider extends Spider
 {
-  public function getModel()
+  public function getMeta()
   {
-    return $this->model;
+    return $this->meta;
   }
 
-  public function initModel()
+  public function initMeta()
   {
-    $this->model = new Model;
+    $this->meta = new Meta;
   }
 
   public function runSpider()
   {
-    $this->initModel();
+    $this->initMeta();
     $this->spiderTemp();
   }
 
@@ -28,7 +28,7 @@ class ArtistSpider extends Spider
     $d = $this->getDom()->filter('enter your filter');
     if($d->count()){
       $name = $d->eq(1)->text();
-      $this->getModel()->setName($name);
+      $this->getMeta()->setName($name);
     }
 
     return null;
