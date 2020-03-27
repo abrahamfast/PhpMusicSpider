@@ -29,6 +29,8 @@ $capsule->bootEloquent();
 $commands = [
   new App\Command\Spider,
   new App\Command\Generator,
+  new App\Command\Queue,
+  new App\Command\QueueList,
 ];
 
 $application = new Application();
