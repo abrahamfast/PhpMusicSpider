@@ -12,7 +12,7 @@ php cli
 ## run a spider
 
 ```sh
-php cli spider:get providerName providerType providerLink
+php cli spider:run providerName providerType providerLink
 ```
 
 ## make new spider
