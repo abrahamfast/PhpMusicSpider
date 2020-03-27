@@ -3,18 +3,18 @@
 namespace App\Spider\Ahaang;
 
 use App\Core\MainSpider as Spider;
-use App\Model\AlbumModel as Model;
+use App\Model\AlbumMeta as Meta;
 
 class AlbumSpider extends Spider
 {
-  public function getModel()
+  public function getMeta()
   {
-    return $this->model;
+    return $this->meta;
   }
 
-  public function initModel()
+  public function initMeta()
   {
-    $this->model = new Model;
+    $this->model = new Meta;
   }
 
   public function runSpider()

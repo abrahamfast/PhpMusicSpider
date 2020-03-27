@@ -30,15 +30,13 @@ class SpiderProvider
     $provider = new $this->provider($this->url);
     $provider->runSpider();
 
-    return $provider->getModel();
+    return $provider->getMeta();
   }
 
   public function process()
   {
     $this->getProvider();
     $model = $this->runProvider();
-
-    var_dump($model);
   }
 
   public function setType($value)

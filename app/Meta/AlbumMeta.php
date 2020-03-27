@@ -2,9 +2,7 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
-
-class AlbumModel extends Model
+class AlbumMeta
 {
   protected string $name = '';
   protected string $cover = '';

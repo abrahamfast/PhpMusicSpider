@@ -2,9 +2,7 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
-
-class TrackModel extends Model
+class TrackMeta
 {
   protected string $lyric = '';
   protected string $name = '';

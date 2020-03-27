@@ -2,9 +2,7 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
-
-class ArtistModel extends Model
+class ArtistMeta
 {
   protected string $artisName = '';
   protected string $artisNameLatin = '';
