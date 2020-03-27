@@ -12,7 +12,7 @@ use App\Core\SpiderProvider;
 
 class Spider extends Command
 {
-    protected static $defaultName = 'spider:get ';
+    protected static $defaultName = 'spider:run ';
     protected function configure()
     {
       $this->setDescription('grep new url.')
