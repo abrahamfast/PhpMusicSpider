@@ -15,6 +15,11 @@ php cli
 php cli spider:get providerName providerType providerLink
 ```
 
+## make new spider
+
+```sh
+php cli spider:make Provider
+```
 
 
 ## Core Skeleton Tasks

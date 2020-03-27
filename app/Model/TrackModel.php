@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-use App\Core\MainModel as Model;
+use Illuminate\Database\Eloquent\Model;
 
 class TrackModel extends Model
 {
