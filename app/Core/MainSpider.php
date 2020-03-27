@@ -8,7 +8,7 @@ class MainSpider
 {
   protected string $url;
   protected $dom;
-  protected $model;
+  protected $meta;
 
   function __construct($url)
   {

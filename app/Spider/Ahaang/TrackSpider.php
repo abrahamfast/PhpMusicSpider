@@ -3,7 +3,7 @@
 namespace App\Spider\Ahaang;
 
 use App\Core\MainSpider as Spider;
-use App\Model\TrackMeta as Meta;
+use App\Meta\TrackMeta as Meta;
 
 class TrackSpider extends Spider
 {
@@ -14,7 +14,7 @@ class TrackSpider extends Spider
 
   public function initMeta()
   {
-    $this->model = new Meta;
+    $this->meta = new Meta;
   }
 
   public function runSpider()
@@ -34,7 +34,7 @@ class TrackSpider extends Spider
     $d = $this->getDom()->filter('.single_text strong');
     if($d->count()){
       $name = $d->eq(1)->text();
-      $this->getModel()->setName($name);
+      $this->getMeta()->setName($name);
     }
 
     return null;
@@ -45,7 +45,7 @@ class TrackSpider extends Spider
     $d = $this->getDom()->filter('.lyric_box');
     if($d->count()){
       $content = $d->text();
-      $this->getModel()->setLyric($content);
+      $this->getMeta()->setLyric($content);
     }
 
     return null;
@@ -56,7 +56,7 @@ class TrackSpider extends Spider
     $d = $this->getDom()->filter('.single_track_320');
     if($d->count()){
       $content = $d->first()->attr('href');
-      $this->getModel()->setTrackUrl($content);
+      $this->getMeta()->setTrackUrl($content);
     }
 
     return null;
@@ -67,7 +67,7 @@ class TrackSpider extends Spider
     $d = $this->getDom()->filter('.single_pic img');
     if($d->count()){
       $content = $d->eq(0)->attr('src');
-      $this->getModel()->setCover($content);
+      $this->getMeta()->setCover($content);
     }
 
     return null;
@@ -78,7 +78,7 @@ class TrackSpider extends Spider
     $d = $this->getDom()->filter('.icon-school a');
     if($d->count()){
       $content = $d->first()->text();
-      $this->getModel()->setGenre($content);
+      $this->getMeta()->setGenre($content);
     }
 
     return null;
@@ -90,7 +90,7 @@ class TrackSpider extends Spider
     if($d->count()){
       $content = $d->first()->text();
       $content = str_replace('تاریخ انتشار', '', $content);
-      $this->getModel()->setPublished($content);
+      $this->getMeta()->setPublished($content);
     }
 
     return null;
@@ -101,7 +101,7 @@ class TrackSpider extends Spider
     $d = $this->getDom()->filter('ul li.icon-person a');
     if($d->count()){
       $content = $d->first()->text();
-      $this->getModel()->setArtist($content);
+      $this->getMeta()->setArtist($content);
     }
 
     return null;

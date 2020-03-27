@@ -3,7 +3,7 @@
 namespace App\Spider\{className};
 
 use App\Core\MainSpider as Spider;
-use App\Model\AlbumMeta as Meta;
+use App\Meta\AlbumMeta as Meta;
 
 class AlbumSpider extends Spider
 {
@@ -14,7 +14,7 @@ class AlbumSpider extends Spider
 
   public function initMeta()
   {
-    $this->model = new Meta;
+    $this->meta = new Meta;
   }
 
   public function runSpider()
@@ -28,7 +28,7 @@ class AlbumSpider extends Spider
     $d = $this->getDom()->filter('enter your filter');
     if($d->count()){
       $name = $d->eq(1)->text();
-      $this->getModel()->setName($name);
+      $this->getMeta()->setName($name);
     }
 
     return null;
