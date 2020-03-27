@@ -21,6 +21,18 @@ php cli spider:run providerName providerType providerLink
 php cli spider:make Provider
 ```
 
+## queue work
+
+```sh
+php cli queue:work
+```
+
+## queue list
+
+```sh
+php cli queue:list
+```
+
 
 ## Core Skeleton Tasks
 - [ ] dom detector
