@@ -19,7 +19,7 @@ class TrackSpider extends Spider
 
   public function runSpider()
   {
-    $this->initModel();
+    $this->initMeta();
     $this->spiderName();
     $this->spiderLyric();
     $this->spiderTrackUrl();

@@ -19,7 +19,7 @@ class AlbumSpider extends Spider
 
   public function runSpider()
   {
-    $this->initModel();
+    $this->initMeta();
     $this->spiderName();
     $this->spiderCover();
     $this->spiderPublished();

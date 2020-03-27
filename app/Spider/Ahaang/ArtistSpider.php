@@ -29,7 +29,7 @@ class ArtistSpider extends Spider
 
   public function runSpider()
   {
-    $this->initModel();
+    $this->initMeta();
 
     $this->spiderArtist();
     $this->spiderBio();
