@@ -9,6 +9,7 @@ $application = new Application();
 
 $commands = [
   new App\Command\Spider,
+  new App\Command\Generator,
 ];
 
 $application->addCommands($commands);
