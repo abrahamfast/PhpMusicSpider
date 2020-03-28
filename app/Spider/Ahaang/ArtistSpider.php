@@ -36,8 +36,8 @@ class ArtistSpider extends Spider
     $this->spiderArtistNameLating();
     $this->spiderCover();
 
-    $this->trackProvider();
-    $this->albumProvider();
+    // $this->trackProvider();
+    // $this->albumProvider();
   }
 
   public function spiderArtist()

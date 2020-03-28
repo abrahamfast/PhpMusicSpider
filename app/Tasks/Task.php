@@ -42,31 +42,23 @@ class Task
 
   public function storeAlbum($meta)
   {
-    $number = $this->getModel()->orderBy('created_at', 'DESC')
-                   ->first()->number;
+    $artist = \App\Model\Artist::where('name', $meta->name)->first();
 
     return $this->getModel()->create([
               'name' => $meta->name,
-              'auto_update' => 1,
-              'local_only' => 1,
-              "number" => $number + 1,
-              'description' => $meta->lyric,
-              'image' => null
+              'image' => 1,
+              'artist_id' => $artist ? $artist->id : 1,
+              'description' => $meta->published
             ]);
   }
 
   public function storeArtist($meta)
   {
-    $number = $this->getModel()->orderBy('created_at', 'DESC')
-                   ->first()->number;
-
     return $this->getModel()->create([
-              'name' => $meta->name,
-              'auto_update' => 1,
-              'local_only' => 1,
-              "number" => $number + 1,
-              'description' => $meta->lyric,
-              'image' => null
+              'name' => $meta->artisName,
+              'image_small' => null,
+              'image_large' => null,
+              'bio_legacy' => $meta->bio
             ]);
   }
 
