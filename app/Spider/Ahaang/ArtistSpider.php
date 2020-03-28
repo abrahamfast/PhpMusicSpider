@@ -19,7 +19,16 @@ class ArtistSpider extends Spider
 
   public function trackProvider()
   {
-    $track = new TrackSpider();
+    $tracks = $this->getMusicLinkList();
+    if (count($tracks)) {
+      foreach ($tracks as $link) {
+        var_dump($link);
+        $track = new \App\Core\SpiderProvider($link, 'track', 'ahaang');
+        $track->process();
+      }
+
+    }
+
   }
 
   public function albumProvider()
@@ -36,7 +45,8 @@ class ArtistSpider extends Spider
     $this->spiderArtistNameLating();
     $this->spiderCover();
 
-    // $this->trackProvider();
+
+    $this->trackProvider();
     // $this->albumProvider();
   }
 
@@ -89,6 +99,23 @@ class ArtistSpider extends Spider
     }
 
     return null;
+  }
+
+  public function getMusicLinkList()
+  {
+    $list_url = getenv('SPIDERBASEURL') . urlencode(
+			str_replace(' ', '-', $this->getMeta()->artisName)
+		);
+
+    $spider = new \App\Core\MainSpider($list_url);
+  	$list = $spider->getDom()->filter('.profile_box_body a')
+                   ->each(function(\Symfony\Component\DomCrawler\Crawler $node, $i){
+                  			if(!$node->filter('.soon')->count()) {
+                  				return $node->attr('href');
+                  			}
+                  	});
+
+  		return $list;
   }
 
 

@@ -27,13 +27,19 @@ class TrackSpider extends Spider
     $this->spiderGenre();
     $this->spiderPublished();
     $this->spiderArtist();
+
   }
 
   public function spiderName()
   {
     $d = $this->getDom()->filter('.single_text strong');
-    if($d->count()){
+    if($d->count() > 1){
       $name = $d->eq(1)->text();
+      $this->getMeta()->setName($name);
+    } elseif($d->count() == 1){
+      $d = $this->getDom()->filter('li.icon-audiotrack');
+      $name = $d->first()->text();
+      $name = str_replace("عنوان اثر", "", $name);
       $this->getMeta()->setName($name);
     }
 
@@ -47,6 +53,7 @@ class TrackSpider extends Spider
       $content = $d->text();
       $this->getMeta()->setLyric($content);
     }
+
 
     return null;
   }
@@ -66,7 +73,7 @@ class TrackSpider extends Spider
   {
     $d = $this->getDom()->filter('.single_pic img');
     if($d->count()){
-      $content = $d->eq(0)->attr('src');
+      $content = $d->first()->attr('src');
       $this->getMeta()->setCover($content);
     }
 

@@ -21,14 +21,18 @@ class Queue
     if($type){
         $files = scandir($this->path . $type);
         $this->selectFile =  $this->path . $type . "/" . $files[2];
+        $content = file_get_contents($this->selectFile);
+
+        return unserialize($content);
     } else {
         $files = scandir($this->path);
         $this->selectFile =  $this->path . $files[2];
+        $content = file_get_contents($this->selectFile);
+
+        return unserialize($content);
     }
 
-    $content = file_get_contents($this->selectFile);
-
-    return unserialize($content);
+    return false;
   }
 
   public function done()
