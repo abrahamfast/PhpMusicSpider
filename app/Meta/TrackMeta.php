@@ -4,13 +4,13 @@ namespace App\Meta;
 
 class TrackMeta
 {
-  protected string $lyric = '';
-  protected string $name = '';
-  protected string $trackUrl = '';
-  protected string $cover = '';
-  protected string $genre = '';
-  protected string $published = '';
-  protected string $artist = '';
+  public string $lyric = '';
+  public string $name = '';
+  public string $trackUrl = '';
+  public string $cover = '';
+  public string $genre = '';
+  public string $published = '';
+  public string $artist = '';
 
   public function setLyric($value)
   {

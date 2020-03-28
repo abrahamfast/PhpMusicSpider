@@ -4,11 +4,11 @@ namespace App\Meta;
 
 class ArtistMeta
 {
-  protected string $artisName = '';
-  protected string $artisNameLatin = '';
-  protected string $bio = '';
-  protected string $cover = '';
-  protected string $genre = '';
+  public string $artisName = '';
+  public string $artisNameLatin = '';
+  public string $bio = '';
+  public string $cover = '';
+  public string $genre = '';
 
   public function setArtistName($value)
   {
