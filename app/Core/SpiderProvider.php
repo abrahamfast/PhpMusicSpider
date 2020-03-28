@@ -42,7 +42,7 @@ class SpiderProvider
     $this->getProvider();
     $meta = $this->runProvider();
     $this->getQueue()->add(
-      $meta->toArray(), $this->type
+      $meta, $this->type
     );
   }
 
