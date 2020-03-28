@@ -35,11 +35,11 @@ php cli queue:list
 
 
 ## Core Skeleton Tasks
-- [ ] dom detector
-- [ ] dom verify
+- [X] dom detector
+- [X] dom verify
 - [ ] dom downloader
-- [ ] database model
+- [X] database model
 - [ ] api model
 - [ ] trigger
 - [ ] exception trigger
-- [ ] queue manager
+- [X] queue manager
