@@ -4,11 +4,11 @@ namespace App\Meta;
 
 class AlbumMeta
 {
-  protected string $name = '';
-  protected string $cover = '';
-  protected string $genre = '';
-  protected string $published = '';
-  protected string $artist = '';
+  public string $name = '';
+  public string $cover = '';
+  public string $genre = '';
+  public string $published = '';
+  public string $artist = '';
 
   public function setName(string $value): void
   {

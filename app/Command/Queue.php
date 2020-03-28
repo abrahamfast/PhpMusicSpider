@@ -29,15 +29,13 @@ class Queue extends Command
       $data = $queue->work($type);
 
       $task = new Task;
-
       $run = $task->run($type, $data);
 
-      // if($run){
-      //   $queue->done();
-      //
-      //   return 0;
-      // }
-      //
+      if(isset($run->id)){
+        $queue->done();
+        return 0;
+      }
+
       // $queue->faild();
 
 
