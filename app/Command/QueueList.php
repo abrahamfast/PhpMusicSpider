@@ -22,7 +22,7 @@ class QueueList extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
       $queue = new QueueAlias;
-      var_dump($queue->list());
+      $queue->list();
       return 0;
     }
 }

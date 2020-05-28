@@ -56,8 +56,12 @@ class Queue
 
   public function list()
   {
-    $files = scandir($this->path);
-    return count($files) - 2;
+    $album = scandir($this->path . "/album");
+    $artist = scandir($this->path . "/artist");
+    $track = scandir($this->path . "/track");
+    echo "album: " . (count($album) - 2) . "\n\r";
+    echo "artist: " . (count($artist) - 2) . "\n\r";
+    echo "tracks: " . (count($track) - 2 ) . "\n\r";
   }
 
   public function generateCode()
